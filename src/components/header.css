@@ -1,0 +1,36 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  background: var(--Neutral-0);
+  padding: 0.2em 0.7em;
+  border-radius: var(--br-out);
+  align-items: center;
+}
+
+.switch-btn {
+  background: var(--Neutral-100);
+  border: none;
+  padding: 0.7em;
+  border-radius: var(--br-in);
+  display: flex;
+  outline: none;
+  justify-content: center;
+  align-items: center;
+}
+.switch-btn:hover {
+  cursor: pointer;
+}
+.switch-btn:focus {
+  border: 2px solid var(--Red-400);
+}
+
+.dark .header {
+  background: var(--Neutral-800);
+}
+.dark .switch-btn {
+  background: var(--Neutral-700);
+}
+
+.dark .blue-part {
+  fill: var(--Neutral-0);
+}

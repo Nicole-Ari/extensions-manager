@@ -1,0 +1,63 @@
+.main-container {
+  background: var(--Light-Gradient);
+  height: fit-content;
+  padding: 3em 9em;
+  font-family: var(--ff-main);
+  font-size: var(--fs);
+  color: var(--Neutral-900);
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+}
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+.item {
+  display: flex;
+  justify-content: space-between;
+}
+.item > h3 {
+  font-weight: var(--fw-700);
+  font-family: var(--ff-primary);
+}
+.options {
+  display: flex;
+  gap: 0.4em;
+}
+
+.btn {
+  border-radius: 2em;
+  padding: 0.5em 1em;
+  outline: none;
+  border: 1px solid var(--Neutral-300);
+  background: var(--Neutral-0);
+  color: var(--Neutral-900);
+  font-family: var(--ff-secondary);
+}
+.actif {
+  background: var(--Red-700);
+  color: var(--Neutral-0);
+}
+
+.dark .main-container {
+  background: var(--Dark-Gradient);
+  color: var(--Neutral-0);
+}
+.dark .btn {
+  border: 1px solid var(--Neutral-600);
+  background: var(--Neutral-700);
+  color: var(--Neutral-0);
+}
+
+.dark .actif {
+  background: var(--Red-400);
+  color: var(--Neutral-900);
+}
