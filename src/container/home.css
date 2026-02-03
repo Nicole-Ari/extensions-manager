@@ -1,6 +1,7 @@
 .main-container {
   background: var(--Light-Gradient);
   height: fit-content;
+  min-height: 100vh;
   padding: 3em 9em;
   font-family: var(--ff-main);
   font-size: var(--fs);
