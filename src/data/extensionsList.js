@@ -11,13 +11,14 @@ import linkCheckerLogo from "../assets/images/logo-link-checker.svg";
 import domSnapshotLogo from "../assets/images/logo-dom-snapshot.svg";
 import codePlusLogo from "../assets/images/logo-console-plus.svg";
 
-const extensions = [
+let extensions = [
   {
     icon: devLensLogo,
     alt: "DevLens logo",
     name: "DevLens",
     details: "Quickly inspect page layots and visualize element boundaries.",
     active: true,
+    removed: false,
   },
   {
     icon: styleSpyLogo,
@@ -25,6 +26,7 @@ const extensions = [
     name: "StyleSpy",
     details: "Instantly analyse and copy CSS from any webpage element.",
     active: true,
+    removed: false,
   },
   {
     icon: speedBootLogo,
@@ -39,6 +41,7 @@ const extensions = [
     name: "JsonWizard",
     details: "Formats, validates, and prettifies JSON responses in-browser.",
     active: true,
+    removed: false,
   },
   {
     icon: tabMasterLogo,
@@ -46,6 +49,7 @@ const extensions = [
     name: "TabMaster Pro",
     details: "Organizes browser tabs into groupes and sessions.",
     active: true,
+    removed: false,
   },
   {
     icon: viewportBuddyLogo,
@@ -62,6 +66,7 @@ const extensions = [
     details:
       "Enables annotation and notes directly onto webpages for collaborative debbuging.",
     active: true,
+    removed: false,
   },
   {
     icon: gridGuidesLogo,
@@ -76,6 +81,7 @@ const extensions = [
     name: "Palette Picker",
     details: "Instantly extracts color palettes from any webpages.",
     active: true,
+    removed: false,
   },
   {
     icon: linkCheckerLogo,
@@ -83,6 +89,7 @@ const extensions = [
     name: "LinkChecker",
     details: "Scans and highlights broken links on any page.",
     active: true,
+    removed: false,
   },
   {
     icon: domSnapshotLogo,
@@ -97,6 +104,7 @@ const extensions = [
     name: "ConsolePlus",
     details: "Enhanced developer console with advanced filtering and logging.",
     active: true,
+    removed: false,
   },
 ];
 export default extensions;

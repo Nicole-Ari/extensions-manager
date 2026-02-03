@@ -5,10 +5,16 @@ import "./home.css";
 import Card from "../components/Card";
 function Home(props) {
   const [darkmode, setDarkmode] = useState(false);
+  const [list, setList] = useState([]);
+  const [selectedList, setSelectedList] = useState([]);
 
   useEffect(() => {
     document.body.classList.toggle("dark", darkmode);
-  }, [darkmode]);
+  }, [darkmode, selectedList, list]);
+
+  useEffect(() => {
+    setSelectedList(extensions);
+  }, []);
 
   return (
     <div className="main-container">
@@ -18,8 +24,15 @@ function Home(props) {
           <h3> Extensions List</h3>
         </div>
         <div className="cards-container">
-          {extensions?.slice(0, 3)?.map((el, index) => (
-            <Card data={el} key={index} />
+          {list?.map((el, index) => (
+            <Card
+              data={el}
+              key={index}
+              list={list}
+              selectedList={selectedList}
+              handleList={setList}
+              handleSelectedList={setSelectedList}
+            />
           ))}
         </div>
       </div>
@@ -33,8 +46,15 @@ function Home(props) {
           </div>
         </div>
         <div className="cards-container">
-          {extensions?.map((el, index) => (
-            <Card data={el} key={index} />
+          {selectedList?.map((el, index) => (
+            <Card
+              data={el}
+              key={index}
+              list={list}
+              selectedList={selectedList}
+              handleSelectedList={setSelectedList}
+              handleList={setList}
+            />
           ))}
         </div>
       </div>

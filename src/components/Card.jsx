@@ -1,9 +1,15 @@
 import React from "react";
 import "./card.css";
-function Card({ data }) {
+import extensions from "../data/extensionsList";
+function Card({ data, handleList, handleSelectedList, list, selectedList }) {
   const removeExtension = (data) => {
-    console.log(data);
+    const newSelectedList = selectedList.filter((el) => el !== data);
+    extensions.map((el) => el === data && (el.removed = true));
+
+    handleSelectedList(newSelectedList);
+    handleList([...list, data]);
   };
+
   return (
     <div className="card">
       <div className="top">
@@ -17,9 +23,9 @@ function Card({ data }) {
         <button
           type="reset"
           className="btn "
-          onClick={() => removeExtension(data?.name)}
+          onClick={() => removeExtension(data)}
         >
-          Remove
+          {data.removed ? "Add" : "Remove"}
         </button>
         <label htmlFor="state"></label>
         <input id="state" type="checkbox" />
