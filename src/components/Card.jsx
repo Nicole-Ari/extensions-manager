@@ -2,7 +2,14 @@ import React, { useEffect } from "react";
 import "./card.css";
 import extensions from "../data/extensionsList";
 
-function Card({ data, handleList, handleSelectedList, list, selectedList }) {
+function Card({
+  data,
+  handleList,
+  handleSelectedList,
+  list,
+  selectedList,
+  setPrevlist,
+}) {
   const removeExtension = (dt) => {
     const newSelectedList = selectedList.filter((el) => el !== dt);
     extensions.map((el) => el === dt && (el.removed = true));
@@ -19,15 +26,13 @@ function Card({ data, handleList, handleSelectedList, list, selectedList }) {
   };
 
   const handleClick = (event, dt) => {
-    const state = event.target.checked;
-
     const lt = selectedList.map((el) =>
-      el.name === dt.name
-        ? { ...el, active: state }
-        : { ...el, active: dt.active },
+      el.name === dt.name ? { ...el, active: event.target.checked } : el,
     );
     handleSelectedList(lt);
+    setPrevlist(lt);
   };
+
   useEffect(() => {}, [selectedList]);
   return (
     <div className="card">
@@ -48,7 +53,9 @@ function Card({ data, handleList, handleSelectedList, list, selectedList }) {
         >
           {data?.removed ? "Add" : "Remove"}
         </button>
-        <label htmlFor="state"></label>
+        <label htmlFor="state" className="checkCont">
+          <span></span>
+        </label>
         <input
           id="state"
           type="checkbox"

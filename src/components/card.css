@@ -10,11 +10,7 @@
   box-shadow: 1px 1px 1px var(--Neutral-200);
   padding: 1em;
 }
-.dark .card {
-  background: var(--Neutral-700);
-  border: 1px solid var(--Neutral-600);
-  box-shadow: unset;
-}
+
 .top {
   display: flex;
   gap: 1em;
@@ -41,6 +37,39 @@
   color: var(--Neutral-600);
   font-weight: var(--fw-500);
 }
+.checkCont {
+  background: var(--Neutral-300);
+  border-radius: 2em;
+  display: flex;
+  align-items: center;
+  width: 2.5em;
+  height: 1.5em;
+  padding: 2px;
+  position: relative;
+}
+.checkCont > span {
+  background: var(--Neutral-0);
+  padding: 10px;
+  border-radius: 100%;
+  position: absolute;
+  top: 50%;
+  right: 2.5px;
+  transform: translateY(-50%);
+}
+.on {
+  background: var(--Red-700);
+}
+.on > span {
+  right: 2.5px;
+}
+.checkCont > .state {
+  /* visibility: hidden; */
+}
 .dark .details small {
   color: var(--Neutral-300);
+}
+.dark .card {
+  background: var(--Neutral-700);
+  border: 1px solid var(--Neutral-600);
+  box-shadow: unset;
 }
