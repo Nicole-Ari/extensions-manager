@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Card from "./Card";
 import searchIcon from "../assets/images/icon-search.svg";
 import { useNavigate, useOutletContext } from "react-router-dom";
@@ -9,18 +9,27 @@ function SelectedExtensions() {
   const [prevlist, setPrevlist] = useState([]);
   const [activeList, setActiveList] = useState(false);
   const [inactiveList, setInactiveList] = useState(false);
+  const all = useRef();
+  const active = useRef();
+  const inactive = useRef();
 
   const showActiveExt = () => {
     setActiveList(true);
     if (inactiveList) {
       setInactiveList(!inactiveList);
     }
+    all.current.classList.remove("actif");
+    active.current.classList.add("actif");
+    inactive.current.classList.remove("actif");
   };
 
   const showAll = () => {
     setSelectedList(prevlist);
     setActiveList(false);
     setInactiveList(false);
+    all.current.classList.add("actif");
+    active.current.classList.remove("actif");
+    inactive.current.classList.remove("actif");
   };
 
   const showInactiveExt = () => {
@@ -28,6 +37,9 @@ function SelectedExtensions() {
     if (activeList) {
       setActiveList(!activeList);
     }
+    all.current.classList.remove("actif");
+    active.current.classList.remove("actif");
+    inactive.current.classList.add("actif");
   };
 
   useEffect(() => {
@@ -39,13 +51,21 @@ function SelectedExtensions() {
       <div className="item">
         <h3>Selected Extensions List</h3>
         <div className="options">
-          <button className="btn btn-all actif" onClick={showAll}>
+          <button className="btn btn-all actif" ref={all} onClick={showAll}>
             All
           </button>
-          <button className="btn btn-active" onClick={showActiveExt}>
+          <button
+            className="btn btn-active"
+            ref={active}
+            onClick={showActiveExt}
+          >
             Active
           </button>
-          <button className="btn btn-incative" onClick={showInactiveExt}>
+          <button
+            className="btn btn-incative"
+            ref={inactive}
+            onClick={showInactiveExt}
+          >
             Inactive
           </button>
         </div>
@@ -94,7 +114,7 @@ function SelectedExtensions() {
             return (
               <Card
                 data={el}
-                key={el.name}
+                key={index}
                 checkboxId={checkboxId}
                 list={list}
                 selectedList={selectedList}

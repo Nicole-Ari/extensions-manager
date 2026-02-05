@@ -1,15 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import "./card.css";
 import extensions from "../data/extensionsList";
 
 function Card({
   data,
+  checkboxId,
   handleList,
   handleSelectedList,
   list,
   selectedList,
   setPrevlist,
 }) {
+  const ref = useRef();
   const removeExtension = (dt) => {
     const newSelectedList = selectedList.filter((el) => el !== dt);
     extensions.map((el) => el === dt && (el.removed = true));
@@ -32,8 +34,10 @@ function Card({
     handleSelectedList(lt);
     setPrevlist(lt);
   };
-
-  useEffect(() => {}, [selectedList]);
+  const setActive = () => {};
+  useEffect(() => {
+    ref.current.classList.toggle("on", data.active);
+  }, [data.active]);
   return (
     <div className="card">
       <div className="top">
@@ -46,22 +50,29 @@ function Card({
       <div className="bottom">
         <button
           type="reset"
-          className="btn "
+          className="btn reset"
           onClick={
             data?.removed ? () => addExt(data) : () => removeExtension(data)
           }
         >
           {data?.removed ? "Add" : "Remove"}
         </button>
-        <label htmlFor="state" className="checkCont">
+        <label
+          htmlFor={checkboxId}
+          ref={ref}
+          className="checkCont"
+          onClick={setActive}
+          tabIndex={0}
+        >
           <span></span>
+          <input
+            className="state"
+            id={checkboxId}
+            type="checkbox"
+            onChange={(e) => handleClick(e, data)}
+            checked={data?.active}
+          />
         </label>
-        <input
-          id="state"
-          type="checkbox"
-          onChange={(e) => handleClick(e, data)}
-          checked={data?.active}
-        />
       </div>
     </div>
   );

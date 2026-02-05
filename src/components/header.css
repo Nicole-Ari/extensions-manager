@@ -5,23 +5,26 @@
   padding: 0.2em 0.7em;
   border-radius: var(--br-out);
   align-items: center;
+  width: 100%;
 }
 
 .switch-btn {
   background: var(--Neutral-100);
-  border: none;
   padding: 0.7em;
   border-radius: var(--br-in);
   display: flex;
-  outline: none;
   justify-content: center;
   align-items: center;
+  border: 2px solid transparent;
+  outline: 2px solid transparent;
 }
 .switch-btn:hover {
   cursor: pointer;
 }
-.switch-btn:focus {
-  border: 2px solid var(--Red-400);
+.switch-btn:focus-visible,
+.switch-btn:active {
+  border: 2px solid var(--Neutral-0);
+  outline: 2px solid var(--Red-400);
 }
 
 .dark .header {
@@ -29,6 +32,14 @@
 }
 .dark .switch-btn {
   background: var(--Neutral-700);
+}
+.dark .switch-btn:hover {
+  background: var(--Neutral-600);
+}
+.dark .switch-btn:focus-visible,
+.dark .switch-btn:active {
+  border: 2px solid var(--Neutral-900);
+  outline: 2px solid var(--Red-400);
 }
 
 .dark .blue-part {

@@ -1,13 +1,12 @@
 .main-container {
-  background: var(--Light-Gradient);
   height: fit-content;
   min-height: 100vh;
-  padding: 3em 9em;
+  width: 62em;
   font-family: var(--ff-main);
   font-size: var(--fs);
-  color: var(--Neutral-900);
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 3em;
 }
 
@@ -20,6 +19,7 @@
   display: flex;
   flex-direction: column;
   gap: 2em;
+  width: 100%;
 }
 .item {
   display: flex;
@@ -37,28 +37,63 @@
 .btn {
   border-radius: 2em;
   padding: 0.5em 1em;
-  outline: none;
+  border: 2px solid transparent;
+  outline: 2px solid transparent;
   border: 1px solid var(--Neutral-300);
   background: var(--Neutral-0);
   color: var(--Neutral-900);
   font-family: var(--ff-secondary);
 }
+.btn:hover {
+  cursor: pointer;
+}
 .actif {
   background: var(--Red-700);
   color: var(--Neutral-0);
+  border: 2px solid transparent;
+  outline: 2px solid transparent;
+}
+.btn:focus-visible,
+.btn:active {
+  border: 2px solid var(--Neutral-200);
+  outline: 2px solid var(--Red-400);
+}
+.actif:focus-visible,
+.actif:active {
+  border: 2px solid var(--Neutral-0);
+  outline: 2px solid var(--Red-400);
+}
+.reset {
+  outline: 2px solid transparent;
 }
 
-.dark .main-container {
-  background: var(--Dark-Gradient);
-  color: var(--Neutral-0);
+.reset:focus-visible {
+  border: 2px solid var(--Neutral-0);
+  background: var(--Neutral-100);
+  outline: 2px solid var(--Red-400);
 }
 .dark .btn {
-  border: 1px solid var(--Neutral-600);
+  border: 2px solid var(--Neutral-600);
   background: var(--Neutral-700);
   color: var(--Neutral-0);
+  outline: 2px solid transparent;
+}
+.dark .btn:hover {
+  background: var(--Neutral-600);
+}
+
+.dark .actif:hover {
+  background: var(--Red-500);
 }
 
 .dark .actif {
   background: var(--Red-400);
   color: var(--Neutral-900);
+  border: 2px solid transparent;
+}
+
+.dark .btn:focus-visible,
+.dark .btn:active {
+  border: 2px solid var(--Neutral-900);
+  outline: 2px solid var(--Red-400);
 }

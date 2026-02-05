@@ -3,18 +3,17 @@
   display: flex;
   flex-direction: column;
   gap: 2em;
-  min-width: 25em;
-  max-width: 25em;
+  max-width: 20em;
   border-radius: var(--br-out);
   border: 1px solid var(--Neutral-200);
   box-shadow: 1px 1px 1px var(--Neutral-200);
   padding: 1em;
+  justify-content: space-between;
 }
 
 .top {
   display: flex;
   gap: 1em;
-  align-items: baseline;
 }
 .top > img {
   align-self: self-start;
@@ -37,23 +36,39 @@
   color: var(--Neutral-600);
   font-weight: var(--fw-500);
 }
+.reset {
+  border-width: 2px;
+}
+.reset:hover {
+  background: var(--Red-400);
+  color: var(--Neutral-0);
+  border: 1px solid var(--Red-400);
+}
 .checkCont {
   background: var(--Neutral-300);
   border-radius: 2em;
   display: flex;
   align-items: center;
   width: 2.5em;
-  height: 1.5em;
+  height: 1.4em;
   padding: 2px;
   position: relative;
+  outline: 2px solid transparent;
+  border: 2px solid transparent;
 }
+.checkCont:hover {
+  cursor: pointer;
+}
+
 .checkCont > span {
   background: var(--Neutral-0);
-  padding: 10px;
+  padding: 8px;
   border-radius: 100%;
   position: absolute;
   top: 50%;
-  right: 2.5px;
+
+  align-self: center;
+  justify-self: center;
   transform: translateY(-50%);
 }
 .on {
@@ -63,7 +78,19 @@
   right: 2.5px;
 }
 .checkCont > .state {
-  /* visibility: hidden; */
+  visibility: hidden;
+}
+.checkCont:focus-visible {
+  outline: 2px solid var(--Red-400);
+  border: 2px solid var(--Neutral-0);
+}
+.dark .reset {
+  border-width: 2px;
+}
+.dark .reset:hover {
+  background: var(--Red-400);
+  color: var(--Neutral-900);
+  border: 1px solid var(--Red-400);
 }
 .dark .details small {
   color: var(--Neutral-300);
@@ -72,4 +99,21 @@
   background: var(--Neutral-700);
   border: 1px solid var(--Neutral-600);
   box-shadow: unset;
+}
+.dark .checkCont {
+  background: var(--Neutral-600);
+}
+.dark .checkCont:hover {
+  background: var(--Neutral-800);
+}
+.dark .on {
+  background: var(--Red-400);
+}
+.dark .on:hover {
+  background: var(--Red-500);
+}
+
+.dark .checkCont:focus-visible {
+  outline: 2px solid var(--Red-400);
+  border: 2px solid var(--Neutral-700);
 }
