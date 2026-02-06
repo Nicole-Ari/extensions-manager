@@ -1,8 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import Card from "./Card";
-import searchIcon from "../assets/images/icon-search.svg";
-import { useNavigate, useOutletContext } from "react-router-dom";
-import extensions from "../data/extensionsList";
+import { useOutletContext } from "react-router-dom";
 
 function SelectedExtensions() {
   const { list, setList, selectedList, setSelectedList } = useOutletContext();
