@@ -3,13 +3,11 @@
   display: flex;
   flex-direction: column;
   gap: 2em;
-  width: 20em;
   border-radius: var(--br-out);
   border: 2px solid var(--Neutral-200);
   box-shadow: 1px 1px 1px var(--Neutral-200);
   padding: 1em;
   justify-content: space-between;
-  flex: 0 1 clamp(20em, 30%, 30em);
 }
 
 .top {
