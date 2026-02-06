@@ -49,7 +49,7 @@ function SelectedExtensions() {
   return (
     <div className="items">
       <div className="item">
-        <h3>Selected Extensions List</h3>
+        <h3>Extensions List</h3>
         <div className="options">
           <button className="btn btn-all actif" ref={all} onClick={showAll}>
             All

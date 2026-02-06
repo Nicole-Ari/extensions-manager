@@ -3,12 +3,13 @@
   display: flex;
   flex-direction: column;
   gap: 2em;
-  max-width: 20em;
+  width: 20em;
   border-radius: var(--br-out);
   border: 2px solid var(--Neutral-200);
   box-shadow: 1px 1px 1px var(--Neutral-200);
   padding: 1em;
   justify-content: space-between;
+  flex: 0 1 clamp(20em, 30%, 30em);
 }
 
 .top {
@@ -120,4 +121,11 @@
 .dark .checkCont:focus-visible {
   outline: 2px solid var(--Red-400);
   border: 2px solid var(--Neutral-700);
+}
+
+@media screen and (max-width: 66.94em) {
+  .card {
+    /* width: clamp(20em, 40em - 1em, 30em); */
+    /* background: #000; */
+  }
 }

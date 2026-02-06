@@ -44,7 +44,7 @@
   color: var(--Neutral-900);
   font-family: var(--ff-secondary);
 }
-.btn:not(.actif, .btn):hover {
+.btn:not(.actif):hover {
   cursor: pointer;
   background: var(--Neutral-100);
 }
@@ -101,4 +101,15 @@
 .dark .btn:active {
   border: 2px solid var(--Neutral-900);
   outline: 2px solid var(--Red-400);
+}
+@media screen and (max-width: 434px) {
+  .item {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+  }
+  .item > h3 {
+    font-size: 2em;
+  }
 }
