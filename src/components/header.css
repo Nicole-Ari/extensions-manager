@@ -20,6 +20,7 @@
 }
 .switch-btn:hover {
   cursor: pointer;
+  background: var(--Neutral-300);
 }
 .switch-btn:focus-visible,
 .switch-btn:active {
@@ -40,6 +41,7 @@
 .dark .switch-btn:active {
   border: 2px solid var(--Neutral-900);
   outline: 2px solid var(--Red-400);
+  background: var(--Neutral-600);
 }
 
 .dark .blue-part {

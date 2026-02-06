@@ -44,14 +44,19 @@
   color: var(--Neutral-900);
   font-family: var(--ff-secondary);
 }
-.btn:hover {
+.btn:not(.actif, .btn):hover {
   cursor: pointer;
+  background: var(--Neutral-100);
 }
 .actif {
   background: var(--Red-700);
   color: var(--Neutral-0);
   border: 2px solid transparent;
   outline: 2px solid transparent;
+}
+.actif:hover {
+  background: var(--Red-500);
+  cursor: pointer;
 }
 .btn:focus-visible,
 .btn:active {
