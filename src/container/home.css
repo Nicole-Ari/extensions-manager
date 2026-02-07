@@ -45,7 +45,7 @@
   color: var(--Neutral-900);
   font-family: var(--ff-secondary);
 }
-.btn:not(.actif):hover {
+.btn:not(.actif, .reset):hover {
   cursor: pointer;
   background: var(--Neutral-100);
 }

@@ -42,7 +42,7 @@ function SelectedExtensions() {
 
   useEffect(() => {
     setPrevlist(selectedList);
-  }, [prevlist]);
+  }, [prevlist, selectedList]);
 
   return (
     <div className="items">
