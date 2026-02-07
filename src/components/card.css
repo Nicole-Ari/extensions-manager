@@ -128,10 +128,3 @@
   outline: 2px solid var(--Red-400);
   border: 2px solid var(--Neutral-700);
 }
-
-@media screen and (max-width: 66.94em) {
-  .card {
-    /* width: clamp(20em, 40em - 1em, 30em); */
-    /* background: #000; */
-  }
-}

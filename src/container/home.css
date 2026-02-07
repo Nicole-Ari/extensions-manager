@@ -43,7 +43,6 @@
 .btn {
   border-radius: 2em;
   padding: 0.5em 1em;
-  border: 2px solid transparent;
   outline: 2px solid transparent;
   border: 1px solid var(--Neutral-300);
   background: var(--Neutral-0);
@@ -111,7 +110,7 @@
   border: 2px solid var(--Neutral-900);
   outline: 2px solid var(--Red-400);
 }
-@media screen and (max-width: 434px) {
+@media screen and (max-width: 27.125) {
   .item {
     flex-direction: column;
     justify-content: center;
