@@ -83,7 +83,8 @@
 .checkCont > .state {
   visibility: hidden;
 }
-.checkCont:focus-visible {
+.checkCont:focus-visible,
+.checkCont:active {
   outline: 2px solid var(--Red-400);
   border: 2px solid var(--Neutral-0);
 }
@@ -122,7 +123,8 @@
   background: var(--Red-500);
 }
 
-.dark .checkCont:focus-visible {
+.dark .checkCont:focus-visible,
+.dark .checkCont:active {
   outline: 2px solid var(--Red-400);
   border: 2px solid var(--Neutral-700);
 }

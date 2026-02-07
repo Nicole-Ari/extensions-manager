@@ -5,8 +5,11 @@ import { useOutletContext } from "react-router-dom";
 function SelectedExtensions() {
   const { list, setList, selectedList, setSelectedList } = useOutletContext();
   const [prevlist, setPrevlist] = useState([]);
+  const [activeExtList, setActiveExtList] = useState([]);
+  const [inactiveExtList, setInactiveExtList] = useState([]);
   const [activeList, setActiveList] = useState(false);
   const [inactiveList, setInactiveList] = useState(false);
+  const [loading, setLoading] = useState(true);
   const all = useRef();
   const active = useRef();
   const inactive = useRef();
@@ -41,7 +44,13 @@ function SelectedExtensions() {
   };
 
   useEffect(() => {
+    if (selectedList.length !== 0) {
+      setLoading(false);
+    }
     setPrevlist(selectedList);
+
+    setActiveExtList(selectedList.filter((el) => el.active === true));
+    setInactiveExtList(selectedList.filter((el) => el.active === false));
   }, [prevlist, selectedList]);
 
   return (
@@ -68,9 +77,24 @@ function SelectedExtensions() {
           </button>
         </div>
       </div>
+      {loading && <div className="result">Loading ...</div>}
+      {!loading && activeList && activeExtList.length === 0 && (
+        <div className="result">No extensions are currently active</div>
+      )}
+      {!loading && inactiveList && inactiveExtList.length === 0 && (
+        <div className="result">No disabled extensions</div>
+      )}
+      {!loading &&
+        !inactiveList &&
+        !activeList &&
+        selectedList.length === 0 && (
+          <div className="result">No extensions added yet</div>
+        )}
+
       <div className="cards-container">
         {activeList &&
-          selectedList
+          activeExtList.length !== 0 &&
+          activeExtList
             ?.filter((el) => el.active === true)
             .map((el, index) => {
               const checkboxId = `state-${el.name}`;
@@ -87,8 +111,10 @@ function SelectedExtensions() {
                 />
               );
             })}
+
         {inactiveList &&
-          selectedList
+          inactiveExtList.length !== 0 &&
+          inactiveExtList
             ?.filter((el) => el.active === false)
             .map((el, index) => {
               const checkboxId = `state-${el.name}`;
@@ -105,8 +131,10 @@ function SelectedExtensions() {
                 />
               );
             })}
+
         {!inactiveList &&
           !activeList &&
+          selectedList.length !== 0 &&
           selectedList.map((el, index) => {
             const checkboxId = `state-${el.name}`;
             return (

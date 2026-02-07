@@ -12,8 +12,7 @@
 
 .cards-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20em, 2fr));
-
+  grid-template-columns: repeat(auto-fill, minmax(20em, 1fr));
   gap: 1em;
 }
 .items {
@@ -34,7 +33,13 @@
   display: flex;
   gap: 0.4em;
 }
-
+.result {
+  width: 100%;
+  padding: 2em;
+  text-align: center;
+  font-family: var(--ff-primary);
+  color: #040918;
+}
 .btn {
   border-radius: 2em;
   padding: 0.5em 1em;
@@ -77,6 +82,9 @@
   border: 2px solid var(--Neutral-0);
   background: var(--Neutral-100);
   outline: 2px solid var(--Red-400);
+}
+.dark .result {
+  color: #ebf2fc;
 }
 .dark .btn {
   border: 2px solid var(--Neutral-600);

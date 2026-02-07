@@ -44,7 +44,7 @@
   color: var(--Neutral-900);
   display: flex;
   justify-content: center;
-  padding: 2em;
+  padding: 1em;
 }
 .dark #root {
   background: var(--Dark-Gradient);
