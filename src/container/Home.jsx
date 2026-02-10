@@ -5,7 +5,7 @@ import "./home.css";
 import { Outlet } from "react-router-dom";
 
 function Home(props) {
-  const [darkmode, setDarkmode] = useState(false);
+  const [darkmode, setDarkmode] = useState(true);
   const [list, setList] = useState([]);
   const [selectedList, setSelectedList] = useState([]);
 

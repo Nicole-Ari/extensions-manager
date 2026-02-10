@@ -97,11 +97,15 @@
   color: var(--Neutral-900);
   border: 2px solid var(--Red-500);
 }
+.dark .reset:focus-visible:hover {
+  color: var(--Neutral-0);
+}
 .dark .reset:focus-visible,
 .dark .reset:active {
   border: 2px solid var(--Neutral-900);
   outline: 2px solid var(--Red-400);
   background: var(--Neutral-600);
+  color: var(--Neutral-0);
 }
 
 .dark .details small {
