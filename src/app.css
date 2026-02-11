@@ -39,6 +39,7 @@
   --br-in: 0.5em;
   --br-out: 0.7em;
 }
+
 #root {
   background: var(--Light-Gradient);
   color: var(--Neutral-900);
