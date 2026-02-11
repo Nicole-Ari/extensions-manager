@@ -129,7 +129,7 @@
     font-size: 2em;
   }
 }
-@media screen and (max-width: 515px) {
+@media screen and (max-width: 32.1875em) {
   .options {
     flex-direction: column;
     justify-content: center;
