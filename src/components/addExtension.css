@@ -1,0 +1,12 @@
+.retourBtn {
+  display: flex;
+  gap: 5px;
+  transition: background-color 0.3s ease-in-out;
+  color: var(--Neutral-800);
+  font-weight: var(--fw-400);
+  background: var(--Neutral-100);
+}
+.retourBtn:not(.dark .retourBtn):hover {
+  cursor: pointer;
+  background: var(--Neutral-300);
+}

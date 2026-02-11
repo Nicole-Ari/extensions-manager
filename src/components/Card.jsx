@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import "./card.css";
 import extensions from "../data/extensionsList";
+import { useLocation } from "react-router-dom";
 
 function Card({
   data,
@@ -12,17 +13,23 @@ function Card({
   setPrevlist,
 }) {
   const ref = useRef();
+  const location = useLocation();
   const removeExtension = (dt) => {
     const newSelectedList = selectedList.filter((el) => el !== dt);
-    extensions.map((el) => el === dt && (el.removed = true));
-
+    extensions.forEach((el) => {
+      if (el === dt) {
+        el.removed = true;
+        el.active = false;
+      }
+    });
+    setPrevlist(newSelectedList);
     handleSelectedList(newSelectedList);
     handleList([...list, dt]);
   };
 
   const addExt = (dt) => {
     const newList = list.filter((el) => el !== dt);
-    extensions.map((el) => el === dt && (el.removed = false));
+    extensions.forEach((el) => el === dt && (el.removed = false));
     handleSelectedList([...selectedList, dt]);
     handleList(newList);
   };
@@ -31,10 +38,14 @@ function Card({
     const lt = selectedList.map((el) =>
       el.name === dt.name ? { ...el, active: event.target.checked } : el,
     );
+    extensions.forEach((el) => {
+      if (el === dt) {
+        el.active = event.target.checked;
+      }
+    });
     handleSelectedList(lt);
     setPrevlist(lt);
   };
-  const setActive = () => {};
   useEffect(() => {
     ref.current.classList.toggle("on", data.active);
   }, [data.active]);
@@ -60,8 +71,11 @@ function Card({
         <label
           htmlFor={checkboxId}
           ref={ref}
-          className="checkCont"
-          onClick={setActive}
+          className={
+            location.pathname.startsWith("/add")
+              ? "checkCont hiddenElem"
+              : "checkCont"
+          }
           tabIndex={0}
         >
           <span></span>

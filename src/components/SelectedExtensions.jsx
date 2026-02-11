@@ -1,6 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import Card from "./Card";
-import { useOutletContext } from "react-router-dom";
+import "./selectedExtensions.css";
+import { ReactComponent as SearchIcon } from "../assets/images/icon-search.svg";
+import { useNavigate, useOutletContext } from "react-router-dom";
+import extensions from "../data/extensionsList";
 
 function SelectedExtensions() {
   const { list, setList, selectedList, setSelectedList } = useOutletContext();
@@ -10,6 +13,7 @@ function SelectedExtensions() {
   const [activeList, setActiveList] = useState(false);
   const [inactiveList, setInactiveList] = useState(false);
   const [loading, setLoading] = useState(true);
+  const Navigate = useNavigate();
   const all = useRef();
   const active = useRef();
   const inactive = useRef();
@@ -43,38 +47,72 @@ function SelectedExtensions() {
     inactive.current.classList.add("actif");
   };
 
+  const handleClick = () => {
+    Navigate("/add");
+  };
+
+  const handleChange = (e) => {
+    const text = e.target.value.toLowerCase();
+    const filter = prevlist.filter((el) =>
+      el.name.toLowerCase().includes(text),
+    );
+    setSelectedList(filter);
+  };
+
   useEffect(() => {
     if (selectedList.length !== 0) {
       setLoading(false);
     }
-    setPrevlist(selectedList);
 
     setActiveExtList(selectedList.filter((el) => el.active === true));
     setInactiveExtList(selectedList.filter((el) => el.active === false));
   }, [prevlist, selectedList]);
+
+  useEffect(() => {
+    setPrevlist(selectedList);
+  }, [prevlist]);
+
+  useEffect(() => {
+    setSelectedList(extensions.filter((el) => !el.removed));
+  }, []);
 
   return (
     <div className="items">
       <div className="item">
         <h3>Extensions List</h3>
         <div className="options">
-          <button className="btn btn-all actif" ref={all} onClick={showAll}>
-            All
-          </button>
-          <button
-            className="btn btn-active"
-            ref={active}
-            onClick={showActiveExt}
-          >
-            Active
-          </button>
-          <button
-            className="btn btn-incative"
-            ref={inactive}
-            onClick={showInactiveExt}
-          >
-            Inactive
-          </button>
+          <span className="btn search">
+            <span className="searchIcon">
+              <SearchIcon width={15} />
+            </span>
+            <input
+              type="text"
+              className="searchInput"
+              onChange={handleChange}
+            />
+          </span>
+          <div className="buttonContainer">
+            <button className="btn btn-all actif" ref={all} onClick={showAll}>
+              All
+            </button>
+            <button
+              className="btn btn-active"
+              ref={active}
+              onClick={showActiveExt}
+            >
+              Active
+            </button>
+            <button
+              className="btn btn-incative"
+              ref={inactive}
+              onClick={showInactiveExt}
+            >
+              Inactive
+            </button>
+            <button className="btn " onClick={handleClick}>
+              +
+            </button>
+          </div>
         </div>
       </div>
       {loading ? (

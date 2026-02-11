@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "./Card";
+import "./addExtension.css";
 import { useNavigate, useOutletContext } from "react-router-dom";
 
 function AddExtension() {
@@ -14,20 +15,26 @@ function AddExtension() {
     <div className="items">
       <div className="item">
         <h3> Extensions List</h3>
-        <p onClick={handleClick}>retour</p>
+        <small onClick={handleClick} className="retourBtn btn">
+          <span>&laquo;</span> Retour
+        </small>
       </div>
-      <div className="cards-container">
-        {list?.map((el, index) => (
-          <Card
-            data={el}
-            key={index}
-            list={list}
-            selectedList={selectedList}
-            handleList={setList}
-            handleSelectedList={setSelectedList}
-          />
-        ))}
-      </div>
+      {list.length === 0 ? (
+        <div className="result">No extensions found</div>
+      ) : (
+        <div className="cards-container">
+          {list?.map((el, index) => (
+            <Card
+              data={el}
+              key={index}
+              list={list}
+              selectedList={selectedList}
+              handleList={setList}
+              handleSelectedList={setSelectedList}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

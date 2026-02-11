@@ -59,7 +59,9 @@
 .checkCont:hover {
   cursor: pointer;
 }
-
+.hiddenElem {
+  visibility: hidden;
+}
 .checkCont > span {
   background: var(--Neutral-0);
   padding: 8px;

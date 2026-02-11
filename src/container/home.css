@@ -28,7 +28,6 @@
 .item > h3 {
   font-weight: var(--fw-700);
   font-family: var(--ff-primary);
-  /* transition: all 0.1s ease-in-out; */
 }
 .options {
   display: flex;
@@ -74,6 +73,10 @@
   border: 2px solid var(--Neutral-0);
   outline: 2px solid var(--Red-400);
 }
+.buttonContainer {
+  display: flex;
+  gap: 0.3em;
+}
 .reset {
   outline: 2px solid transparent;
 }
@@ -111,15 +114,29 @@
   border: 2px solid var(--Neutral-900);
   outline: 2px solid var(--Red-400);
 }
-@media screen and (max-width: 27.125em) {
+@media screen and (max-width: 776px) {
   .item {
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 1em;
   }
+  .options .search {
+    height: 2.3em;
+  }
   .item > h3 {
     transition: all 0.1s ease-in-out;
     font-size: 2em;
+  }
+}
+@media screen and (max-width: 515px) {
+  .options {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+  }
+  .options .search {
+    width: 80vw;
   }
 }
