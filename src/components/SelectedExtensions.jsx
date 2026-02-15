@@ -74,7 +74,7 @@ function SelectedExtensions() {
 
   useEffect(() => {
     setSelectedList(extensions.filter((el) => !el.removed));
-  }, [setSelectedList]);
+  }, []);
 
   return (
     <div className="items">
