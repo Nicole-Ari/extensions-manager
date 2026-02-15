@@ -10,7 +10,6 @@ function Card({
   handleSelectedList,
   list,
   selectedList,
-  setPrevlist,
 }) {
   const ref = useRef();
   const location = useLocation();
@@ -22,7 +21,6 @@ function Card({
         el.active = false;
       }
     });
-    setPrevlist(newSelectedList);
     handleSelectedList(newSelectedList);
     handleList([...list, dt]);
   };
@@ -44,7 +42,6 @@ function Card({
       }
     });
     handleSelectedList(lt);
-    setPrevlist(lt);
   };
   useEffect(() => {
     ref.current.classList.toggle("on", data.active);

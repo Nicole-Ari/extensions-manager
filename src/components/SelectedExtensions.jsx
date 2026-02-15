@@ -7,7 +7,6 @@ import extensions from "../data/extensionsList";
 
 function SelectedExtensions() {
   const { list, setList, selectedList, setSelectedList } = useOutletContext();
-  const [prevlist, setPrevlist] = useState([]);
   const [activeExtList, setActiveExtList] = useState([]);
   const [inactiveExtList, setInactiveExtList] = useState([]);
   const [activeList, setActiveList] = useState(false);
@@ -17,7 +16,6 @@ function SelectedExtensions() {
   const all = useRef();
   const active = useRef();
   const inactive = useRef();
-
   const showActiveExt = () => {
     setActiveList(true);
     if (inactiveList) {
@@ -29,7 +27,6 @@ function SelectedExtensions() {
   };
 
   const showAll = () => {
-    setSelectedList(prevlist);
     setActiveList(false);
     setInactiveList(false);
     all.current.classList.add("actif");
@@ -53,9 +50,8 @@ function SelectedExtensions() {
 
   const handleChange = (e) => {
     const text = e.target.value.toLowerCase();
-    const filter = prevlist.filter((el) =>
-      el.name.toLowerCase().includes(text),
-    );
+    const lt = extensions.filter((el) => !el.removed);
+    const filter = lt.filter((el) => el.name.toLowerCase().includes(text));
     setSelectedList(filter);
   };
 
@@ -66,15 +62,11 @@ function SelectedExtensions() {
 
     setActiveExtList(selectedList.filter((el) => el.active === true));
     setInactiveExtList(selectedList.filter((el) => el.active === false));
-  }, [prevlist, selectedList]);
-
-  useEffect(() => {
-    setPrevlist(selectedList);
-  }, [prevlist]);
+  }, [selectedList]);
 
   useEffect(() => {
     setSelectedList(extensions.filter((el) => !el.removed));
-  }, []);
+  }, [setSelectedList]);
 
   return (
     <div className="items">
@@ -148,7 +140,6 @@ function SelectedExtensions() {
                       selectedList={selectedList}
                       handleSelectedList={setSelectedList}
                       handleList={setList}
-                      setPrevlist={setPrevlist}
                     />
                   );
                 })}
@@ -168,7 +159,6 @@ function SelectedExtensions() {
                       selectedList={selectedList}
                       handleSelectedList={setSelectedList}
                       handleList={setList}
-                      setPrevlist={setPrevlist}
                     />
                   );
                 })}
@@ -187,7 +177,6 @@ function SelectedExtensions() {
                     selectedList={selectedList}
                     handleSelectedList={setSelectedList}
                     handleList={setList}
-                    setPrevlist={setPrevlist}
                   />
                 );
               })}
