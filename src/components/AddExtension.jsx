@@ -2,14 +2,12 @@ import React from "react";
 import Card from "./Card";
 import "./addExtension.css";
 import { useNavigate, useOutletContext } from "react-router-dom";
-import extensions from "../data/extensionsList";
 
 function AddExtension() {
   const { list, setList, selectedList, setSelectedList } = useOutletContext();
   const navigate = useNavigate();
 
   const handleClick = () => {
-    setSelectedList(extensions);
     navigate("/");
   };
 

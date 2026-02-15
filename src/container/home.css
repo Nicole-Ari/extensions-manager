@@ -64,7 +64,7 @@
   cursor: pointer;
 }
 .btn:focus-visible,
-.btn:active {
+.btn:not(.search):active {
   border: 2px solid var(--Neutral-200);
   outline: 2px solid var(--Red-400);
 }
@@ -110,7 +110,7 @@
 }
 
 .dark .btn:focus-visible,
-.dark .btn:active {
+.dark .btn:not(.search):active {
   border: 2px solid var(--Neutral-900);
   outline: 2px solid var(--Red-400);
 }

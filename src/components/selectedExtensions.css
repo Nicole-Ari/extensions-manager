@@ -35,6 +35,7 @@
   outline: none;
   background: transparent;
 }
+
 .dark .options .search:hover {
   background: var(--Neutral-800);
 }

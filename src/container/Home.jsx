@@ -14,7 +14,7 @@ function Home(props) {
   }, [darkmode, selectedList, list]);
 
   useEffect(() => {
-    setSelectedList(extensions);
+    setSelectedList(extensions.filter((el) => !el.removed));
   }, []);
 
   return (
