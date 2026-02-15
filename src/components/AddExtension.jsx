@@ -16,7 +16,7 @@ function AddExtension() {
       <div className="item">
         <h3> Extensions List</h3>
         <small onClick={handleClick} className="retourBtn btn">
-          <span>&laquo;</span> Retour
+          <span>&laquo;</span> Back
         </small>
       </div>
       {list.length === 0 ? (
