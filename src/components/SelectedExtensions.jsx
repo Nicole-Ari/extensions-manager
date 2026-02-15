@@ -121,7 +121,7 @@ function SelectedExtensions() {
             !inactiveList &&
             !activeList &&
             selectedList.length === 0 && (
-              <div className="result">No extensions added yet</div>
+              <div className="result">No extensions found</div>
             )}
 
           <div className="cards-container">
